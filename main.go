@@ -23,6 +23,7 @@ func initializeRouter(){
 	r.HandleFunc("/company/{id}", controllers.UpdateCompany).Methods("PATCH")
 	r.HandleFunc("/company/{id}", controllers.DeleteCompany).Methods("DELETE")
 
+	r.HandleFunc("/company/prices/{id}", controllers.GetPricesByCompany).Methods("GET")
 	r.HandleFunc("/prices", controllers.GetPrices).Methods("GET")
 	r.HandleFunc("/prices/{id}", controllers.GetPrice).Methods("GET")
 	r.HandleFunc("/prices", controllers.AddPrice).Methods("POST")

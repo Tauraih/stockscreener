@@ -29,6 +29,16 @@ func GetPrice(w http.ResponseWriter, r *http.Request) {
 	utils.ResponseJSON(w, price)
 }
 
+// GetPricesByCompany ...
+func GetPricesByCompany(w http.ResponseWriter, r *http.Request) {
+	params := mux.Vars(r)
+	var prices []models.Prices
+	models.DB.Find(&prices, "company_id = ?", params["id"])
+
+	w.Header().Set("Content-Type", "application/json")
+	utils.ResponseJSON(w, prices)
+}
+
 // AddPrice ... 
 func AddPrice(w http.ResponseWriter, r *http.Request) {
 	var price models.Prices
