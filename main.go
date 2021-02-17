@@ -21,10 +21,13 @@ func initializeRouter(){
 	r.HandleFunc("/company/{id}", controllers.GetCompany).Methods("GET")
 	r.HandleFunc("/company", controllers.CreateCompany).Methods("POST")
 	r.HandleFunc("/company/{id}", controllers.UpdateCompany).Methods("PATCH")
-	r.HandleFunc("/company/{id}", controllers.DeleteCompany).Methods("PATCH")
+	r.HandleFunc("/company/{id}", controllers.DeleteCompany).Methods("DELETE")
 
 	r.HandleFunc("/prices", controllers.GetPrices).Methods("GET")
 	r.HandleFunc("/prices/{id}", controllers.GetPrice).Methods("GET")
+	r.HandleFunc("/prices", controllers.AddPrice).Methods("POST")
+	r.HandleFunc("/prices/{id}", controllers.UpdatePrice).Methods("PATCH")
+	r.HandleFunc("/prices/{id}", controllers.DeletePrice).Methods("DELETE")
 
 	log.Fatal(http.ListenAndServe(":8000", r))
 }
