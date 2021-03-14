@@ -21,5 +21,5 @@ func InitialMigration(){
 		fmt.Println(err.Error())
 		panic("cannot connect to DB")
 	}
-	DB.AutoMigrate(&User{}, &Company{}, &Prices{})
+	DB.AutoMigrate(&User{}, &Company{}, &Prices{}, &Business{}, &New{})
 }

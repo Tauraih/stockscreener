@@ -30,6 +30,10 @@ func initializeRouter(){
 	r.HandleFunc("/prices/{id}", controllers.UpdatePrice).Methods("PATCH")
 	r.HandleFunc("/prices/{id}", controllers.DeletePrice).Methods("DELETE")
 
+	r.HandleFunc("/create", controllers.CreateFromCsv).Methods("POST")
+	r.HandleFunc("/bompanies", controllers.GetBusinesses).Methods("GET")
+	r.HandleFunc("/bompaniese/{symbol}", controllers.GetByBusiness).Methods("GET")
+
 	log.Fatal(http.ListenAndServe(":8000", r))
 }
 
